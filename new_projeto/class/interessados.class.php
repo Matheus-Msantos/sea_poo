@@ -36,7 +36,12 @@ class Interessado extends Crud{
 		return $dados;
 	}
 
-	public function insert(){
+	
+}
+
+class DadosDoInteressado extends Interessado{
+
+    public function insert(){
 
 		$sql  = "INSERT INTO Interessado (nome, telefone, email, estudouIngles, quantoTempo, nota, imagem, mensagem, registro, data) 
                 VALUES (:nome, :telefone, :email, :estudouIngles, :tempoDeCurso,  :nota, :imagem, :mensagem, :registro, :data)";
@@ -78,5 +83,4 @@ class Interessado extends Crud{
 		return $stmt->execute();
 
 	}
-
 }
