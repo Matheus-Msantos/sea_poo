@@ -1,15 +1,15 @@
 <?php 
 
-require_once'typeUser.class.php';
+require_once'dataBase.class.php';
 
-class Login extends TypeUser {
+class Login extends DataBase {
     
     public function __construct() {
         parent::__construct();
 
     }
 
-    public function validar() {
+    public function login() {
         
         if ( isset($_SESSION['login']) ) {
             
@@ -22,19 +22,29 @@ class Login extends TypeUser {
             $hash = $reg['senha'];
         
             if( password_verify($senha, $hash) ) {
-        
                 $_SESSION['login'] = $login;
         
-                
             } else{
                 $msg = 'Credenciais inválidas, tente novamente!';
                 
             }
         } 
     }
+
+    public function validarLogin() {
+        if ( !isset($_SESSION['login']) ) {
+            header ('Location: index.php');
+        }
+    }
+
+    public function sair() {    
+        session_start();
+        session_destroy();
+        header('Location: index.php');
+    }
 }
 
-
+// tentar mudar a parte de verufucar senhas para uma outra class 
 
 
 
