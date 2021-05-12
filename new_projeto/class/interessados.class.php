@@ -2,7 +2,40 @@
 
 require_once 'crud.class.php';
 
-class Interessado extends Crud{
+interface Usuario extends Crud {
+    private $nome;
+    private $email;
+
+    public function setDados();
+    public function getDados();
+    public function inset();
+    public function update();
+}
+
+class Admin implements Usuario {
+    private $nome;
+    private $email;
+
+    public function setDados($nome, $email) {
+        $this->nome = $nome;
+        $this->email = $emial;
+    }
+
+    public function getDados($nome, $email) {
+        $dados = [$this->nome, $this->email];
+		return $dados;
+    }
+
+    public function inset(){
+        //Lógica
+    }
+
+    public function update(){
+        //Lógica
+    }    
+}
+
+class Interessado implements Usuario{
 	
 	protected $table = 'interessado';
 	private $nome;
