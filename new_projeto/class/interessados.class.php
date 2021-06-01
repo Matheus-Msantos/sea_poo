@@ -2,7 +2,7 @@
 
 require_once 'crud.class.php';
 
-interface Usuario extends Crud {
+interface Usuario  {
     private $nome;
     private $email;
 
@@ -12,13 +12,13 @@ interface Usuario extends Crud {
     public function update();
 }
 
-class Admin implements Usuario {
+class Admin extends CrudAdmin implements Usuario {
     private $nome;
     private $email;
 
     public function setDados($nome, $email) {
         $this->nome = $nome;
-        $this->email = $emial;
+        $this->email = $email;
     }
 
     public function getDados($nome, $email) {
@@ -35,7 +35,7 @@ class Admin implements Usuario {
     }    
 }
 
-class Interessado implements Usuario{
+class Interessado extends CrudInteressados implements Usuario{
 	
 	protected $table = 'interessado';
 	private $nome;
