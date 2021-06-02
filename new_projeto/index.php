@@ -15,7 +15,7 @@
 
 		<?php
 	
-		$interessado = new Interessado();
+		include 'callFactory.php';
 
 		if(isset($_POST['cadastrar'])):
 
